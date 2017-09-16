@@ -35,7 +35,7 @@ var cards = [
 
 var cardsInPlay = [];
 
-function checkForMatch(){
+var checkForMatch = function(){
 	if(cardsInPlay[0] === cardsInPlay[1]){
 		alert("you found a match!");
 	}else{
@@ -64,11 +64,35 @@ function checkForMatch(){
 		cardElement.setAttribute("data-id", i);
 		cardElement.addEventListener("click", flipCard);
 		document.getElementById("game-board").appendChild(cardElement);
-	};
+	}
 };
 
 
 createBoard();
+
+
+var resetGame = function(){
+
+	// delete cards in cardsInPlay array
+	for(i = cardsInPlay.length; i> 0; i--){
+		cardsInPlay.pop();
+	}
+	
+	// get rid of the current board
+	var meset = document.getElementById("game-board");
+	meset.remove();
+	
+	// because we removed the div "game-board" we need to recreate it so the createBoard() can be executed.
+	var newD = document.createElement("div");
+	newD.setAttribute("id", "game-board");
+	newD.setAttribute("class", "board clearfix");
+	document.getElementById("mainTag").appendChild(newD);
+
+
+	// create the new board
+	createBoard();
+
+}
 
 
 
