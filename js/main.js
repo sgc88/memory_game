@@ -40,7 +40,6 @@ var gameScore = 0;
 var checkForMatch = function(){
 	if(cardsInPlay[0] === cardsInPlay[1]){
 		alert("you found a match!");
-		
 		gameScore ++;
 		document.getElementById("trackScore").innerHTML= gameScore;
 	}else{
@@ -84,11 +83,11 @@ var resetGame = function(){
 	for(i = cardsInPlay.length; i> 0; i--){
 		cardsInPlay.pop();
 	}
-	
+
 	// get rid of the current board
 	var meset = document.getElementById("game-board");
 	meset.remove();
-	
+
 	// because we removed the div "game-board" we need to recreate it so the createBoard() can be executed.
 	var newD = document.createElement("div");
 	newD.setAttribute("id", "game-board");
@@ -105,11 +104,3 @@ gameScore=[];
 
 
 console.log(gameScore);
-
-
-
-
-
-
-
-
