@@ -33,15 +33,22 @@ var cards = [
 
 ];
 
+
 var cardsInPlay = [];
+var gameScore = 0;
 
 var checkForMatch = function(){
 	if(cardsInPlay[0] === cardsInPlay[1]){
 		alert("you found a match!");
+		
+		gameScore ++;
+		document.getElementById("trackScore").innerHTML= gameScore;
 	}else{
 		alert("sorry, try again");
 	}
+
 };
+
 
  var flipCard = function(){
 	var cardId = this.getAttribute("data-id");
@@ -93,6 +100,12 @@ var resetGame = function(){
 	createBoard();
 
 }
+
+gameScore=[];
+
+
+console.log(gameScore);
+
 
 
 
